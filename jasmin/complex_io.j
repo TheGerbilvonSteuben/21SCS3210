@@ -1,9 +1,9 @@
 ; CS3210 - Principles of Programming Languages
 ; Intructor: Thyago Mota
-; Description: Performing a simple user IO
+; Description: Performing a more complex user IO
 
 ; class directive
-.class SimpleIO
+.class ComplexIO
 .super java/lang/Object
 
 ; method directive
@@ -13,9 +13,9 @@
   .limit stack 5
 
   ; number of local variables
-  .limit locals 2
+  .limit locals 3
 
-  ; display a prompt
+  ; display 1st prompt
   getstatic java/lang/System/out Ljava/io/PrintStream;
   ldc "Name? "
   invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
@@ -35,6 +35,32 @@
   ; display the input
   getstatic java/lang/System/out Ljava/io/PrintStream;
   aload 1
+  invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+
+  ; display 2nd prompt
+  getstatic java/lang/System/out Ljava/io/PrintStream;
+  ldc "Age? "
+  invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+
+  ; call readLine on Scanner
+  aload 0
+  invokevirtual java/util/Scanner/nextLine()Ljava/lang/String;
+
+  ; convert String to int
+  invokestatic java/lang/Integer/parseInt(Ljava/lang/String;)I
+  istore 2
+
+  ; display name
+  getstatic java/lang/System/out Ljava/io/PrintStream;
+  aload 1
+  invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+
+  ; display age (as String)
+  iload 2
+  invokestatic java/lang/String/valueOf(I)Ljava/lang/String;
+  astore 2
+  getstatic java/lang/System/out Ljava/io/PrintStream;
+  aload 2
   invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 
   ; invoke return on main
