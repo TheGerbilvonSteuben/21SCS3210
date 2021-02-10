@@ -8,5 +8,5 @@
 // TODO: finish this part of the code
 object Token extends Enumeration {
   val EOF             = Value
-  val DECLARE         = Token.DECLARE
+  val DECLARE         = Value
 }
