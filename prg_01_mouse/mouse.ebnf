@@ -1,0 +1,14 @@
+mouse       = { statement } `$$`
+statement   = `?` | `!` | string | identifier | `=` | literal | `+` | `-` | `*` | `/` | `\` | `^` | `.` | if | while
+string      = `"` { character } `"`
+identifier  = letter
+literal     = `0` | nonzero { digit }
+nonzero     = `1` | ... | `9`
+digit       = `0` | ... | `9`
+if          = `[` { statement } `]`
+while       = `(` { statement } `)`
+letter      = `a` | ... | `z` | `A` | ... | `Z`
+punctuation = `.` | `,` | `;` | `:` | `?` | `!`
+special     = `<` | `_` | `@` | `#` | `$` | `%` | `^` | `&` | `(` | `)` | `-` | `+` | `=` | `'` | `/` | `\` | `[` | `]` | `{` | `}` | `|`
+blank       = ` `
+character   = letter | digit | punctuation | special | blank
